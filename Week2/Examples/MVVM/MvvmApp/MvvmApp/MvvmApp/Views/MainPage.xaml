@@ -15,7 +15,7 @@
                BackgroundColor="#000000"
               TextColor="#ffffff" />
         <Entry Placeholder="Name here" Text="{Binding Name}"/>
-        <Button Text="{Binding Name}" IsEnabled="{Binding IsNotBusy}" Command="{Binding DisplayNameCommand}"/>
+        <Button Text="{Binding Name}" Command="{Binding DisplayNameCommand}"/>
         <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
     </StackLayout>
 

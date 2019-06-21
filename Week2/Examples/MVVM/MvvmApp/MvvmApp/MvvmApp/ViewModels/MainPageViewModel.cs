@@ -14,10 +14,14 @@ namespace MvvmApp.ViewModels
         public MainPageViewModel()
         {
             Name = "Here goes your name";
-            DisplayNameCommand = new Command(DisplayName);
+            DisplayNameCommand = new Command(DisplayName, CanDisplayName);
         }
         
-
+        private bool CanDisplayName()
+        {
+            return !IsBusy;
+        }
+        
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
@@ -55,24 +59,13 @@ namespace MvvmApp.ViewModels
                 if (isBusy != value)
                 {
                     isBusy = value;
+                    ((Command)DisplayNameCommand).ChangeCanExecute();
                     OnPropertyChanged("IsBusy");
                 }
             }
         }
-        public bool IsNotBusy
-        {
-            get
-            {
-                return !isBusy;
-            }
-            set
-            {
-                if (isBusy != value)
-                {
-                    OnPropertyChanged("IsNotBusy");
-                }
-            }
-        }
+        
+        
         async void DisplayName()
         {
             IsBusy = true;
