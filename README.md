@@ -20,8 +20,9 @@ Create a blank app and add at least 3 controls to the MainPage.
 
 5. Create the UI for the LoginPage.xaml (see the image for reference) and add the Bindings.
 
-=========== App Requirements ============
-When the user taps on the Sing In button, you have to validate that the 
+- App Requirements:
+
+When the user taps on the Sign In button, you have to validate that the 
 credentials are correct (use name@mail.com as username and admin123 as password).
 
 In the validation command method, if the credentials are valid, you have to wait 3 seconds 
