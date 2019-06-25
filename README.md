@@ -31,7 +31,7 @@ await Application.Current.MainPage.Navigation.PushAsync(new MainPage());.
 In the case that the user put wrong credentials, you have to show an alert telling the user
 that his/her username or password are incorrect.
 
-![Week 2 Exercise](https://raw.githubusercontent.com/AngelGarcia13/XamarinForms101Class2019/master/Images/Week2 Exercise.jpg)
+[[https://raw.githubusercontent.com/AngelGarcia13/XamarinForms101Class2019/master/Images/Week2 Exercise.jpg|alt=Week2Exercise]]
 
 🎓 Week 3 https://docs.google.com/presentation/d/1HisoyLS5lkrzBKBL2kJcQH19YBkk1Lyi1MTjniZ7L4o
 
@@ -50,4 +50,5 @@ that his/her username or password are incorrect.
 - In the DetailsPage put all the details of the PeopleWanted including the WantedReasons.
 - Add a button to "Send an alert" to the FBI, when the command of this button gets triggered, wait 3 seconds and show an alert dialog saying: "We have sent the alert for TheNameOfTheSelectedPerson", while we wait those seconds the button should be disabled and an ActivityIndicator should be displayed above the button.
 
-![Week 3 Exercise](https://raw.githubusercontent.com/AngelGarcia13/XamarinForms101Class2019/master/Images/Week3 Exercise.jpg)
+[[https://raw.githubusercontent.com/AngelGarcia13/XamarinForms101Class2019/master/Images/Week3 Exercise.jpg|alt=Week3Exercise]]
+
