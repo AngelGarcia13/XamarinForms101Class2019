@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ListExample.Views.MainPage"
+             Title="NASA Employees">
+    <StackLayout Spacing="5">
+        <Label Text="Loading data from NASA..."
+               FontSize="Small" 
+               IsVisible="{Binding IsBusy}"
+               HorizontalOptions="Center"
+               Margin="0, 10"/>
+        <ActivityIndicator 
+            IsRunning="{Binding IsBusy}"
+            Color="Black"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="Center"
+            />
+        <Label Text="{Binding SelectedEmployee}" 
+           HorizontalOptions="Center" 
+               IsVisible="{Binding IsNotBusy}"
+               />
+        <ListView 
+            IsVisible="{Binding IsNotBusy}"
+            ItemsSource="{Binding Employees}"
+              CachingStrategy="RecycleElement"
+              RowHeight="60"
+              SelectedItem="{Binding Employee}">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}"
+                              Detail="{Binding Occupation}" />
+                    <!--<ViewCell>
+                        <StackLayout Margin="8">
+                            <Label Text="{Binding Name}"
+                               FontAttributes="Bold" />
+                            <Label Text="{Binding Occupation}" />
+                        </StackLayout>
+                    </ViewCell>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+        <Button 
+            IsVisible="{Binding IsNotBusy}"
+            Text="Agregar" 
+                Command="{Binding AddCommand}"
+                HorizontalOptions="Center" />
+    </StackLayout>
+
+</ContentPage>

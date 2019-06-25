@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:triggers="clr-namespace:BehaviorsAndTriggers.Triggers;assembly=BehaviorsAndTriggers"
+             mc:Ignorable="d"
+             x:Class="BehaviorsAndTriggers.Views.TriggersPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Triggers Page!"
+                   FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand" />
+            <!--Property Trigger-->
+            <Label Text="Property Trigger:"
+                HorizontalOptions="CenterAndExpand" />
+            <Entry Placeholder="Enter your name">
+                <Entry.Triggers>
+                    <Trigger 
+                        TargetType="Entry" 
+                        Property="IsFocused" 
+                        Value="True">
+                        <Setter Property="BackgroundColor" Value="LightGray" />
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
+            <!--Data Trigger-->
+            <Label Text="Data Trigger:"
+                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="entry" 
+                   Text="" 
+                   Placeholder="Required field" />
+            <Button x:Name="button" 
+                    Text="Save"
+                    FontSize="Large"
+                    HorizontalOptions="Center">
+                <Button.Triggers>
+                    <DataTrigger 
+                        TargetType="Button"
+                        Binding="{Binding Source={x:Reference entry},
+                                          Path=Text.Length}" 
+                                 Value="0">
+                        <Setter Property="IsEnabled" Value="False" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+            <!--Event Trigger-->
+            <Label Text="Event Trigger:"
+                HorizontalOptions="CenterAndExpand" />
+            <Entry Placeholder="Enter a System.Double">
+                <Entry.Triggers>
+                    <EventTrigger Event="TextChanged">
+                        <triggers:NumericValidationTriggerAction />
+                    </EventTrigger>
+                </Entry.Triggers>
+            </Entry>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
